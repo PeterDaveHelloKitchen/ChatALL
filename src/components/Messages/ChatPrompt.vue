@@ -4,14 +4,10 @@
     class="message prompt"
     :class="isThread ? 'thread-prompt' : ''"
   >
-    <v-card-title class="title">
-      {{ $t("chat.promptTitle") }}
-      <v-spacer></v-spacer>
-      <v-btn flat size="x-small" icon @click="copyToClipboard">
-        <v-icon>mdi-content-copy</v-icon>
-      </v-btn>
-    </v-card-title>
     <pre>{{ message ? message.content : "" }}</pre>
+    <v-btn flat size="x-small" icon @click="copyToClipboard" class="copy-button">
+      <v-icon>mdi-content-copy</v-icon>
+    </v-btn>
   </v-card>
 </template>
 
@@ -56,6 +52,7 @@ function copyToClipboard() {
   padding: 16px;
   word-wrap: break-word;
   text-align: left;
+  position: relative;
 }
 
 .prompt {
@@ -75,11 +72,9 @@ function copyToClipboard() {
   margin-bottom: 1rem;
 }
 
-.title {
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
-  padding: 0;
-  margin-bottom: 8px;
+.copy-button {
+  position: absolute;
+  top: 0;
+  right: -40px;
 }
 </style>
