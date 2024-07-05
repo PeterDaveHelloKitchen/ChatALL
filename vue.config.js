@@ -28,6 +28,10 @@ module.exports = defineConfig({
               target: "nsis",
               arch: ["ia32"],
             },
+            {
+              target: "zip",
+              arch: ["x64", "ia32"],
+            },
           ],
           icon: "src/assets/icon.ico",
         },
